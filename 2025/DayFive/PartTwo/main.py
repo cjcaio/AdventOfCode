@@ -33,7 +33,6 @@ for start, end in range_list:
 
 print(merged)
 
-# Contar IDs em todos os ranges mesclados
 fresh_ids = sum(end - start + 1 for start, end in merged)
 
 print(f'there are {fresh_ids} fresh ids')

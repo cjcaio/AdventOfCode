@@ -20,7 +20,6 @@ for move in lines_as_words:
 
 for move in moves_as_int:
     starting_number = (starting_number + move) % 100
-
     if starting_number == 0:
         number_of_zeros += 1
 

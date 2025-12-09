@@ -5,19 +5,21 @@ LEN_LINE_DEFAULT = 138
 with open(file_path, 'r') as file:
     input = file.read()
 
-# input = '''..@@.@@@@.
-# @@@.@.@.@@
-# @@@@@.@.@@
-# @.@@@@..@.
-# @@.@@@@.@@
-# .@@@@@@@.@
-# .@.@.@.@@@
-# @.@@@.@@@@
-# .@@@@@@@@.
-# @.@.@@@.@.'''
+input = '''..@@.@@@@.
+@@@.@.@.@@
+@@@@@.@.@@
+@.@@@@..@.
+@@.@@@@.@@
+.@@@@@@@.@
+.@.@.@.@@@
+@.@@@.@@@@
+.@@@@@@@@.
+@.@.@@@.@.'''
 
 lines = input.strip().split('\n')
 print(lines)
+
+marked_lines = [list(line) for line in lines]
 
 def check_adjacents(line: list, pos: int) -> bool:
     many = 0
@@ -96,6 +98,9 @@ for i, line in enumerate(lines):
                 reachable_rolls += 1
                 print(f"reachables: {reachable_rolls}")
 
+                marked_lines[i][j] = '.'
+
 ## too high = 6665
 
 print(f'Answer: {reachable_rolls}')
+print("\n".join("".join(row) for row in marked_lines))
